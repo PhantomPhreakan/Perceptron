@@ -5,6 +5,7 @@ Spyder Editor
 This is a temporary script file.
 """
 import matplotlib.pyplot as plt
+import numpy as np
 x1=[0,0,1,1]
 x2=[0,1,0,1]
 y=[0,0,0,1]
@@ -33,9 +34,34 @@ while(count<4):
     else:
         count+=1
     i+=1
-  
+a=[]
+b=[]
+c=[]
+d=[]  
 print(weights)
-plt.plot(y)
+for i in range(0,4):
+    if(y[i]==0):
+        a.append(x1[i])
+        b.append(x2[i])
+    else:
+        c.append(x1[i])
+        d.append(x2[i])
+ypl=[]        
+plt.scatter(a,b,color='r')
+plt.scatter(c,d)
+
+
+
+xintr=(theta-weights[0])/weights[1]
+yintr=(theta-weights[0])/weights[2]
+
+slope=-yintr/xintr
+xx=plt.xlim()
+yeq = []
+for x in xx:
+    yeq.append(yintr+slope*x)
+plt.plot(xx,yeq)
 plt.show()
+
     
 
